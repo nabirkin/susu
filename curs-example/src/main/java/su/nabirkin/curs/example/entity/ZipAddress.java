@@ -1,13 +1,22 @@
 package su.nabirkin.curs.example.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity
 public class ZipAddress {
-	String zipCode;
-	Address address;
+	@Id  
+    @GeneratedValue
+    public Integer id; 
 	
-	private ZipAddress() {
+	String zipCode;
+	@Transient Address address;
+	
+	public ZipAddress() {
 		// TODO Auto-generated constructor stub
 	}
 	
