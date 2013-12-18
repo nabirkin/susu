@@ -1,10 +1,22 @@
 package su.nabirkin.curs.example.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity
 public class Address {
+	@Id  
+    @GeneratedValue
+    public Integer id; 
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	City city;
+	@ManyToOne(cascade = CascadeType.ALL)
 	Street street;
 	String house;
 	

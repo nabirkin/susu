@@ -13,5 +13,11 @@
         <property name="connection.pool_size">1</property>  
           
         <mapping class="su.nabirkin.curs.example.entity.ZipAddress"></mapping>
+        <mapping class="su.nabirkin.curs.example.entity.Address"></mapping>
+        <mapping class="su.nabirkin.curs.example.entity.City"></mapping>
+        <mapping class="su.nabirkin.curs.example.entity.Region"></mapping>
+        <mapping class="su.nabirkin.curs.example.entity.Street"></mapping>
+        
+       
 	</session-factory>
 </hibernate-configuration>

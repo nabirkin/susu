@@ -1,11 +1,22 @@
 package su.nabirkin.curs.example.entity;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@Entity
 public class City {
 	private static final long MEGAPOLICE_SETTLERS_COUNT = 10000000L;
 	
+	@Id  
+    @GeneratedValue
+    public Integer id; 
+	
+	@ManyToOne(cascade = CascadeType.ALL)
 	Region region;
 	String name;
 	long settlersCount;

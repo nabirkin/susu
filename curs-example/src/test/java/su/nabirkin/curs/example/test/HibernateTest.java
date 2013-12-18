@@ -5,6 +5,11 @@ import java.util.List;
 import org.junit.Test;
 
 import su.nabirkin.curs.example.dao.DAO;
+import su.nabirkin.curs.example.entity.Address;
+import su.nabirkin.curs.example.entity.City;
+import su.nabirkin.curs.example.entity.Region;
+import su.nabirkin.curs.example.entity.Street;
+import su.nabirkin.curs.example.entity.StreetType;
 import su.nabirkin.curs.example.entity.ZipAddress;
 
 /**
@@ -15,9 +20,20 @@ import su.nabirkin.curs.example.entity.ZipAddress;
  */
 public class HibernateTest {
 	
-	final ZipAddress zipAddress = new ZipAddress();
+	private static Region region = new Region(74, "Челябинская область");
+	private static City chelCity = new City(region , "Челябинск", 1500000L);
+	private static City kopCity = new City(region , "Копейск", 123000L);
+	private static Street leninStreet = new Street(StreetType.PROSPECT, "Ленина");
+	private static Street stalinStreet = new Street(StreetType.ULICA, "Сталина");
+	
+	private final static Address chelAdr = new Address(chelCity , leninStreet , "20а");
+	private final static Address kopAdr = new Address(kopCity , stalinStreet  , "65");
+	
+	
+	final ZipAddress zipAddress = new ZipAddress("000000");
 	{
-		zipAddress.setZipCode("000000");
+		zipAddress.getAddresses().add(chelAdr);
+		zipAddress.getAddresses().add(kopAdr);
 	}
 	
 	@Test
